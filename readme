@@ -1,0 +1,25 @@
+    private void getUserResource(Function<String, String> function, String functionP, String other1, String other2, String other3){
+        Object UserResource = function.apply(functionP);
+        System.out.println(UserResource + other1 + other2 + other3);
+        System.out.println(UserResource + other1 + other2 + other3);
+        System.out.println(UserResource + other1 + other2 + other3);
+    }
+
+    private void getUserResourceByUserId(String userId, String other1, String other2, String other3){
+        Function<String, String> function = s -> "userResource" + s + "id";
+        getUserResource(function, userId, other1, other2, other3);
+    }
+
+    private void getUserResourceById(String id, String other1, String other2, String other3){
+        Function<String, String> function = s -> "userResource" + "userId" + s;
+        getUserResource(function, id, other1, other2, other3);
+    }
+
+    public static void main(String[] args) {
+        Client client = new Client();
+        client.getUserResourceByUserId("kkk", "other1", "other2", "other3");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        client.getUserResourceById("uuu", "other1", "other2", "other3");
+    }
